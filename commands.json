@@ -1,0 +1,2138 @@
+[
+  {
+    "command": "whoami",
+    "summary": "Display the current user",
+    "description": "Prints the username of the current user.",
+    "options": [],
+    "exit_status": {
+      "0": "Success",
+      "1": "Failure (e.g., if no user is logged in)"
+    },
+    "examples": [
+      {
+        "command": "whoami",
+        "description": "Displays the current username."
+      }
+    ]
+  },
+  {
+    "command": "id",
+    "summary": "Show user ID (UID) and group ID (GID)",
+    "description": "Displays the user ID (UID), group ID (GID), and groups of the specified user (or the current user if no user is specified).",
+    "options": [
+        {
+            "short": "-u",
+            "description": "Display only the user ID"
+        },
+        {
+            "short": "-g",
+            "description": "Display only the group ID"
+        },
+        {
+            "short": "-n",
+            "description": "Display user and group names instead of numerical IDs"
+        }
+    ],
+    "exit_status": {
+      "0": "Success",
+      "1": "Failure"
+    },
+    "examples": [
+      {
+        "command": "id",
+        "description": "Displays UID, GID, and groups of the current user."
+      },
+        {
+        "command": "id -u",
+        "description": "Displays only the UID of the current user."
+      },
+        {
+        "command": "id -gn",
+        "description": "Displays the group name of the current user."
+      }
+    ]
+  },
+  {
+    "command": "who",
+    "summary": "List logged-in users",
+    "description": "Displays information about currently logged-in users.",
+    "options": [
+        {
+            "short": "-b",
+            "description": "Show last system boot time"
+        },
+                {
+            "short": "-u",
+            "description": "Show usernames instead of full user names"
+        },
+                {
+            "short": "-H",
+            "description": "Display column headers"
+        }
+    ],
+    "exit_status": {
+      "0": "Success",
+      "1": "Failure"
+    },
+    "examples": [
+      {
+        "command": "who",
+        "description": "Lists currently logged-in users."
+      }
+    ]
+  },
+    {
+    "command": "groups",
+    "summary": "Show groups of a user",
+    "description": "Displays the groups to which a user belongs.",
+    "options": [],
+    "exit_status": {
+      "0": "Success",
+      "1": "Failure"
+    },
+    "examples": [
+      {
+        "command": "groups",
+        "description": "Shows groups of the current user."
+      },
+      {
+        "command": "groups username",
+        "description": "Shows groups of the specified user."
+      }
+    ]
+  },
+    {
+    "command": "usermod",
+    "summary": "Modify user account",
+    "description": "Modifies a user account. Use with the -aG option to add user to supplementary group without removing them from the other groups",
+    "options": [
+        {
+            "short": "-a",
+            "description": "Add user to the supplementary group without removing them from other groups"
+        },
+                {
+            "short": "-G",
+            "description": "Set user's new group. It overwrites all the previous supplementary groups"
+        },
+                {
+            "short": "-l",
+            "description": "Change the login name"
+        }
+    ],
+    "exit_status": {
+      "0": "Success",
+      "1": "Failure"
+    },
+    "examples": [
+      {
+        "command": "usermod -aG groupname username",
+        "description": "Adds user to group without removing them from other groups."
+      }
+    ]
+  },
+    {
+    "command": "passwd",
+    "summary": "Change user password",
+    "description": "Changes the password for a user account.",
+    "options": [],
+    "exit_status": {
+      "0": "Success",
+      "1": "Failure"
+    },
+    "examples": [
+      {
+        "command": "passwd",
+        "description": "Changes the password for the current user."
+      },
+      {
+        "command": "passwd username",
+        "description": "Changes the password for the specified user."
+      }
+    ]
+  },
+    {
+    "command": "adduser",
+    "summary": "Create a new user",
+    "description": "Creates a new user account.",
+    "options": [],
+    "exit_status": {
+      "0": "Success",
+      "1": "Failure"
+    },
+    "examples": [
+      {
+        "command": "adduser newuser",
+        "description": "Creates a new user account named 'newuser'."
+      }
+    ]
+  },
+    {
+    "command": "deluser",
+    "summary": "Remove a user",
+    "description": "Removes a user account.",
+    "options": [],
+    "exit_status": {
+      "0": "Success",
+      "1": "Failure"
+    },
+    "examples": [
+      {
+        "command": "deluser username",
+        "description": "Removes the specified user account."
+      }
+    ]
+  },
+    {
+    "command": "groupadd",
+    "summary": "Create a new group",
+    "description": "Creates a new group.",
+    "options": [],
+    "exit_status": {
+      "0": "Success",
+      "1": "Failure"
+    },
+    "examples": [
+      {
+        "command": "groupadd newgroup",
+        "description": "Creates a new group named 'newgroup'."
+      }
+    ]
+  },
+    {
+    "command": "groupdel",
+    "summary": "Delete a group",
+    "description": "Deletes a group.",
+    "options": [],
+    "exit_status": {
+      "0": "Success",
+      "1": "Failure"
+    },
+    "examples": [
+      {
+        "command": "groupdel groupname",
+        "description": "Deletes the specified group."
+      }
+    ]
+  },
+   {
+    "command": "ls",
+    "summary": "List directory contents",
+    "description": "List information about the FILEs and DIRECTORIES in the current working directory (the current directory by default)",
+    "options": [
+      {
+        "short": "-a",
+        "long": "--all",
+        "description": "Do not ignore entries starting with ."
+      },
+      {
+        "short": "-A",
+        "long": "--almost-all",
+        "description": "Do not list implied . and .."
+      },
+      {
+        "short": "-l",
+        "description": "Use a long listing format"
+      },
+      {
+        "short": "-h",
+        "long": "--human-readable",
+        "description": "With -l and -s, print sizes like 1K 234M 2G etc."
+      },
+      {
+        "short": "-t",
+        "description": "Sort by time, newest first"
+      },
+      {
+        "short": "-r",
+        "long": "--reverse",
+        "description": "Reverse order while sorting"
+      },
+        {
+            "short": "-la",
+            "description": "List all files with details and human-readable sizes"
+        }
+    ],
+    "exit_status": {
+      "0": "If OK",
+      "1": "If minor problems (e.g., cannot access subdirectory)",
+      "2": "If serious trouble (e.g., cannot access command-line argument)"
+    },
+    "examples": [
+      {
+        "command": "ls -l",
+        "description": "List files in long format"
+      },
+      {
+        "command": "ls -a",
+        "description": "List all files, including hidden files"
+      },
+      {
+        "command": "ls -l -h",
+        "description": "List files in long format with human-readable sizes"
+      },
+      {
+        "command": "ls -ltr",
+        "description": "List files in long format, sorted by time (newest first), and in reverse order"
+      }
+    ]
+  },
+      {
+    "command": "cd",
+    "summary": "Change directory",
+    "description": "Change the current directory to DIR.",
+    "options": [],
+    "exit_status": {
+      "0": "If the directory change was successful",
+      "1": "If the directory does not exist or permission is denied"
+    },
+    "examples": [
+      {
+        "command": "cd /home/user",
+        "description": "Change to the user's home directory."
+      },
+      {
+        "command": "cd ..",
+        "description": "Change to the parent directory."
+      },
+      {
+        "command": "cd -",
+        "description": "Change to the previous directory."
+      }
+    ]
+  },
+  {
+    "command": "pwd",
+    "summary": "Show current directory",
+    "description": "Print the name of the current working directory.",
+    "options": [
+      {
+        "short": "-L",
+        "long": "--logical",
+        "description": "Print the current directory as it was before any symbolic links were traversed."
+      },
+      {
+        "short": "-P",
+        "long": "--physical",
+        "description": "Print the current directory after resolving all symbolic links."
+      }
+    ],
+    "exit_status": {
+      "0": "Success"
+    },
+    "examples": [
+      {
+        "command": "pwd",
+        "description": "Prints the current working directory."
+      },
+      {
+        "command": "pwd -L",
+        "description": "Prints the logical current working directory."
+      }
+    ]
+  },
+  {
+    "command": "mkdir",
+    "summary": "Create directory",
+    "description": "Create the directory(ies) specified by the pathname(s).",
+    "options": [
+      {
+        "short": "-m",
+        "long": "--mode=MODE",
+        "description": "Set the file permissions of the new directory."
+      },
+      {
+        "short": "-p",
+        "long": "--parents",
+        "description": "No error if existing, make parent directories as needed."
+      }
+    ],
+    "exit_status": {
+      "0": "Success",
+      "1": "Failure (e.g., directory already exists, permissions issues)"
+    },
+    "examples": [
+      {
+        "command": "mkdir my_directory",
+        "description": "Creates a directory named 'my_directory' in the current directory."
+      },
+      {
+        "command": "mkdir -p /path/to/new/directory",
+        "description": "Creates the directory and any necessary parent directories."
+      }
+    ]
+  },
+  {
+    "command": "rm",
+    "summary": "Remove files or directories",
+    "description": "Remove (unlink) the FILE(s).",
+    "options": [
+      {
+        "short": "-f",
+        "long": "--force",
+        "description": "Ignore nonexistent files and arguments, never prompt."
+      },
+      {
+        "short": "-r",
+        "long": "--recursive",
+        "description": "Remove directories and their contents recursively."
+      },
+      {
+        "short": "-i",
+        "description": "Prompt before every removal."
+      }
+    ],
+    "exit_status": {
+      "0": "Success",
+      "1": "Failure (e.g., file not found, permissions issues)"
+    },
+    "examples": [
+      {
+        "command": "rm myfile.txt",
+        "description": "Removes the file 'myfile.txt'."
+      },
+      {
+        "command": "rm -rf my_directory",
+        "description": "Forcefully removes the directory 'my_directory' and its contents."
+      }
+    ]
+  },
+  {
+    "command": "cp",
+    "summary": "Copy files and directories",
+    "description": "Copy SOURCE to DEST, or copy multiple SOURCE(s) to DIRECTORY.",
+    "options": [
+      {
+        "short": "-r",
+        "long": "--recursive",
+        "description": "Copy directories recursively."
+      },
+      {
+        "short": "-i",
+        "long": "--interactive",
+        "description": "Prompt before overwriting."
+      }
+    ],
+    "exit_status": {
+      "0": "Success",
+      "1": "Failure (e.g., file not found, permissions issues)"
+    },
+    "examples": [
+      {
+        "command": "cp myfile.txt /path/to/destination",
+        "description": "Copies 'myfile.txt' to the specified destination."
+      },
+      {
+        "command": "cp -r my_directory /path/to/destination",
+        "description": "Recursively copies the directory 'my_directory' to the destination."
+      }
+    ]
+  },
+  {
+    "command": "mv",
+    "summary": "Move/rename files or directories",
+    "description": "Rename SOURCE to DEST, or move SOURCE(s) to DIRECTORY.",
+    "options": [
+      {
+        "short": "-i",
+        "long": "--interactive",
+        "description": "Prompt before overwriting."
+      }
+    ],
+    "exit_status": {
+      "0": "Success",
+      "1": "Failure (e.g., file not found, permissions issues)"
+    },
+    "examples": [
+      {
+        "command": "mv myfile.txt newfile.txt",
+        "description": "Renames 'myfile.txt' to 'newfile.txt'."
+      },
+      {
+        "command": "mv myfile.txt /path/to/destination",
+        "description": "Moves 'myfile.txt' to the specified destination."
+      }
+    ]
+  },
+  {
+    "command": "find",
+    "summary": "Search for files",
+    "description": "Search for files in a directory hierarchy.",
+    "options": [
+      
+      {
+          "short": "-name",
+          "description": "File name to search"
+      },
+      {
+          "short": "-type",
+          "description": "Type of file to search"
+      }
+    ],
+    "exit_status": {
+      "0": "Success",
+      "1": "Failure"
+    },
+    "examples": [
+      {
+        "command": "find /path -type f -name \"*.log\"",
+        "description": "Finds all files ending with '.log' in the specified path."
+      },
+      {
+        "command": "find . -name \"myfile.txt\"",
+        "description": "Finds the file 'myfile.txt' in the current directory and its subdirectories."
+      }
+    ]
+  },
+  {
+    "command": "stat",
+    "summary": "Show file metadata",
+    "description": "Display file or file system status.",
+    "options": [
+        {
+            "short": "-c",
+            "description": "Use a specified format string"
+        }
+    ],
+    "exit_status": {
+      "0": "Success",
+      "1": "Failure (e.g., file not found)"
+    },
+    "examples": [
+      {
+        "command": "stat /file",
+        "description": "Displays detailed metadata for the specified file."
+      },
+        {
+        "command": "stat -c '%n %s' /file",
+        "description": "Displays file name and size"
+      }
+    ]
+  },
+  {
+    "command": "df",
+    "summary": "Display disk usage",
+    "description": "Report file system disk space usage.",
+    "options": [
+      {
+        "short": "-h",
+        "long": "--human-readable",
+        "description": "Show sizes in human-readable format (e.g., KB, MB, GB)."
+      },
+      {
+        "short": "-i",
+        "long": "--inodes",
+        "description": "Display inode information instead of block usage."
+      }
+    ],
+    "exit_status": {
+      "0": "Success"
+    },
+    "examples": [
+      {
+        "command": "df -h",
+        "description": "Displays disk usage in human-readable format."
+      },
+      {
+        "command": "df -i",
+        "description": "Displays inode usage."
+      }
+    ]
+  },
+    {
+    "command": "chmod",
+    "summary": "Change file permissions",
+    "description": "Change the file access permissions.",
+    "options": [
+      {
+        "description": "Permissions can be specified in octal (e.g., 755) or symbolic (e.g., u+rwx,g+rx,o+rx) form."
+      }
+      
+    ],
+    "exit_status": {
+      "0": "Success",
+      "1": "Failure (e.g., file not found, permissions issues)"
+    },
+    "examples": [
+      {
+        "command": "chmod 755 /file",
+        "description": "Sets read, write, and execute permissions for the owner, read and execute for the group and others."
+      },
+      {
+        "command": "chmod u+rwx,g+rx,o+rx /file",
+        "description": "Sets read, write, and execute permissions for the owner, read and execute for the group and others (symbolic form)."
+      }
+    ]
+  },
+  {
+    "command": "chown",
+    "summary": "Change file ownership",
+    "description": "Change the owner and/or group of a file.",
+    "options": [
+        {
+            "short": "-R",
+            "long": "--recursive",
+            "description": "Operate recursively on directories and their contents."
+        }
+    ],
+    "exit_status": {
+      "0": "Success",
+      "1": "Failure (e.g., file not found, permissions issues)"
+    },
+    "examples": [
+      {
+        "command": "chown user:group /file",
+        "description": "Changes the owner to 'user' and the group to 'group'."
+      },
+      {
+        "command": "chown root /file",
+        "description": "Changes the owner to root."
+      },
+        {
+        "command": "chown :group /file",
+        "description": "Changes the group to group."
+      }
+    ]
+  },
+  {
+    "command": "chgrp",
+    "summary": "Change group ownership",
+    "description": "Change the group ownership of a file.",
+    "options": [
+        {
+            "short": "-R",
+            "long": "--recursive",
+            "description": "Operate recursively on directories and their contents."
+        }
+    ],
+    "exit_status": {
+      "0": "Success",
+      "1": "Failure (e.g., file not found, permissions issues)"
+    },
+    "examples": [
+      {
+        "command": "chgrp group /file",
+        "description": "Changes the group ownership of the file to 'group'."
+      }
+    ]
+  },
+  {
+    "command": "umask",
+    "summary": "Set default permissions",
+    "description": "Sets the file mode creation mask. This mask is used to modify the permissions of newly created files and directories.",
+    "options": [],
+    "exit_status": {
+      "0": "Success"
+    },
+    "examples": [
+      {
+        "command": "umask 022",
+        "description": "Sets the umask to 022, which results in default permissions of 644 for files and 755 for directories."
+      },
+      {
+        "command": "umask",
+        "description": "Displays the current umask value."
+      }
+    ]
+  },
+  {
+    "command": "lsattr",
+    "summary": "List file attributes",
+    "description": "List the extended file attributes on a Linux file system.",
+    "options": [],
+    "exit_status": {
+      "0": "Success"
+    },
+    "examples": [
+      {
+        "command": "lsattr /file",
+        "description": "Lists the file attributes of the specified file."
+      }
+    ]
+  },
+  {
+    "command": "chattr",
+    "summary": "Change file attributes",
+    "description": "Change file attributes on a Linux file system.",
+    "options": [
+        {
+            "short": "+i",
+            "description": "Set the immutable attribute"
+        },
+                {
+            "short": "-i",
+            "description": "Unset the immutable attribute"
+        }
+    ],
+    "exit_status": {
+      "0": "Success",
+      "1": "Failure (e.g., file not found, permissions issues)"
+    },
+    "examples": [
+      {
+        "command": "chattr +i /file",
+        "description": "Makes the file immutable (cannot be deleted or modified)."
+      },
+        {
+        "command": "chattr -i /file",
+        "description": "Unsets the immutable attribute."
+      }
+    ]
+  },
+  {
+    "command": "top",
+    "summary": "Monitor running processes",
+    "description": "Displays dynamic real-time views of running processes.",
+    "options": [],
+    "exit_status": {
+      "0": "Success"
+    },
+    "examples": [
+      {
+        "command": "top",
+        "description": "Runs the top command to monitor processes."
+      }
+    ]
+  },
+  {
+    "command": "htop",
+    "summary": "Interactive process viewer",
+    "description": "An interactive process viewer for Linux.",
+    "options": [],
+    "exit_status": {
+      "0": "Success"
+    },
+    "examples": [
+      {
+        "command": "htop",
+        "description": "Runs htop to interactively monitor processes."
+      }
+    ]
+  },
+  {
+    "command": "ps",
+    "summary": "List all processes",
+    "description": "Display information about the running processes.",
+    "options": [
+        {
+            "short": "aux",
+            "description": "List all processes in a user-oriented format."
+        },
+        {
+            "short": "-ef",
+            "description": "List all processes in a full format."
+        }
+    ],
+    "exit_status": {
+      "0": "Success"
+    },
+    "examples": [
+      {
+        "command": "ps aux",
+        "description": "Lists all running processes in a user-oriented format."
+      },
+        {
+        "command": "ps -ef",
+        "description": "Lists all running processes in a full format."
+      }
+    ]
+  },
+  {
+    "command": "kill",
+    "summary": "Kill a process",
+    "description": "Terminate a process by its PID.",
+    "options": [],
+    "exit_status": {
+      "0": "Success",
+      "1": "Failure (e.g., process not found, permissions issues)"
+    },
+    "examples": [
+      {
+        "command": "kill -9 [PID]",
+        "description": "Forcefully kills the process with the specified PID."
+      }
+    ]
+  },
+  {
+    "command": "pkill",
+    "summary": "Kill processes by name",
+    "description": "Kill processes by name.",
+    "options": [
+        {
+            "short": "-f",
+            "description": "Match the full process name."
+        }
+    ],
+    "exit_status": {
+      "0": "Success",
+      "1": "Failure (e.g., process not found, permissions issues)"
+    },
+    "examples": [
+      {
+        "command": "pkill -f [process_name]",
+        "description": "Kills all processes matching the specified name."
+      }
+    ]
+  },
+  {
+    "command": "systemctl",
+    "summary": "Manage systemd services",
+    "description": "Control and manage systemd services.",
+    "options": [],
+    "exit_status": {
+      "0": "Success"
+    },
+    "examples": [
+      {
+        "command": "systemctl status [service]",
+        "description": "Checks the status of the specified service."
+      },
+        {
+        "command": "systemctl start [service]",
+        "description": "Starts the specified service."
+      },
+        {
+        "command": "systemctl stop [service]",
+        "description": "Stops the specified service."
+      }
+    ]
+  },
+    {
+    "command": "journalctl",
+    "summary": "View system logs",
+    "description": "View and analyze system logs collected by systemd.",
+    "options": [
+      {
+        "short": "-xe",
+        "description": "Show all logs with explanations and extra details."
+      },
+      {
+        "short": "-u",
+        "description": "Show logs for a specific unit (service, etc.)."
+      },
+        {
+            "short": "-f",
+            "description": "Follow the log in real time"
+        }
+    ],
+    "exit_status": {
+      "0": "Success"
+    },
+    "examples": [
+      {
+        "command": "journalctl -xe",
+        "description": "Displays system logs with explanations and extra details."
+      },
+        {
+        "command": "journalctl -u sshd",
+        "description": "Displays logs for the sshd service."
+      }
+    ]
+  },
+  {
+    "command": "ip",
+    "summary": "Show network interfaces and IPs",
+    "description": "Show / manipulate network interfaces and addresses.",
+    "options": [
+      {
+        "short": "a",
+        "description": "Display network interfaces and their IP addresses."
+      },
+      {
+        "short": "r",
+        "description": "Display routing table."
+      }
+    ],
+    "exit_status": {
+      "0": "Success"
+    },
+    "examples": [
+      {
+        "command": "ip a",
+        "description": "Displays network interfaces and IP addresses."
+      },
+      {
+        "command": "ip r",
+        "description": "Displays the routing table."
+      }
+    ]
+  },
+  {
+    "command": "netstat",
+    "summary": "Show open ports and listening services (deprecated)",
+    "description": "Show network connections, listening ports, and network interface statistics. (netstat is deprecated; ss is recommended)",
+    "options": [
+      {
+        "short": "-tulnp",
+        "description": "Show TCP, UDP, listening, numerical, and program information."
+      }
+    ],
+    "exit_status": {
+      "0": "Success"
+    },
+    "examples": [
+      {
+        "command": "netstat -tulnp",
+        "description": "Displays open ports and listening services."
+      }
+    ]
+  },
+  {
+    "command": "ss",
+    "summary": "Show socket statistics",
+    "description": "ss is used to display socket-related information.",
+    "options": [
+      {
+        "short": "-tulwn",
+        "description": "Show TCP, UDP, listening, unix, wide, and numerical information."
+      }
+    ],
+    "exit_status": {
+      "0": "Success"
+    },
+    "examples": [
+      {
+        "command": "ss -tulwn",
+        "description": "Displays socket statistics."
+      }
+    ]
+  },
+  {
+    "command": "ping",
+    "summary": "Test network connectivity",
+    "description": "Send ICMP ECHO_REQUEST packets to a network host.",
+    "options": [
+        {
+            "short": "-c",
+            "description": "Stop after sending (count) ECHO_REQUEST packets."
+        }
+    ],
+    "exit_status": {
+      "0": "Success (host is reachable)",
+      "1": "No response from host",
+      "2": "Other errors"
+    },
+    "examples": [
+      {
+        "command": "ping -c 4 google.com",
+        "description": "Sends 4 ping requests to google.com."
+      }
+    ]
+  },
+  {
+    "command": "traceroute",
+    "summary": "Show network route to a host",
+    "description": "Trace the route packets take to reach a network host.",
+    "options": [],
+    "exit_status": {
+      "0": "Success"
+    },
+    "examples": [
+      {
+        "command": "traceroute google.com",
+        "description": "Traces the route to google.com."
+      }
+    ]
+  },
+  {
+    "command": "curl",
+    "summary": "Check HTTP headers",
+    "description": "Transfer data from or to a server (primarily HTTP/HTTPS).",
+    "options": [
+        {
+            "short": "-I",
+            "description": "Fetch the header of the HTTP request."
+        }
+    ],
+    "exit_status": {
+      "0": "Success"
+    },
+    "examples": [
+      {
+        "command": "curl -I https://example.com",
+        "description": "Retrieves the HTTP headers from example.com."
+      }
+    ]
+  },
+  {
+    "command": "wget",
+    "summary": "Download a file",
+    "description": "Retrieve files from the web.",
+    "options": [],
+    "exit_status": {
+      "0": "Success"
+    },
+    "examples": [
+      {
+        "command": "wget https://example.com/file",
+        "description": "Downloads the file from the specified URL."
+      }
+    ]
+  },
+  {
+    "command": "lsblk",
+    "summary": "List block devices",
+    "description": "List block devices in a tree-like format.",
+    "options": [],
+    "exit_status": {
+      "0": "Success"
+    },
+    "examples": [
+      {
+        "command": "lsblk",
+        "description": "Lists block devices."
+      }
+    ]
+  },
+  {
+    "command": "mount",
+    "summary": "Mount a disk",
+    "description": "Attach a filesystem to a mount point.",
+    "options": [],
+    "exit_status": {
+      "0": "Success",
+      "32": "Mounting failed"
+    },
+    "examples": [
+      {
+        "command": "mount /dev/sdX /mnt",
+        "description": "Mounts the device /dev/sdX to the mount point /mnt."
+      }
+    ]
+  },
+  {
+    "command": "umount",
+    "summary": "Unmount a disk",
+    "description": "Detach a filesystem from a mount point.",
+    "options": [],
+    "exit_status": {
+      "0": "Success",
+      "1": "Failure (e.g., device is busy)"
+    },
+    "examples": [
+      {
+        "command": "umount /mnt",
+        "description": "Unmounts the filesystem from the mount point /mnt."
+      }
+    ]
+  },
+  {
+    "command": "fsck",
+    "summary": "Check and repair filesystem",
+    "description": "Check and optionally repair a filesystem.",
+    "options": [],
+    "exit_status": {
+      "0": "No errors detected",
+      "1": "File system errors corrected",
+      "2": "File system errors left uncorrected",
+      "4": "Errors detected but not corrected",
+      "8": "Operation aborted",
+      "16": "Usage or syntax error",
+      "32": "All file systems should be checked",
+      "128": "Shared library error"
+    },
+    "examples": [
+      {
+        "command": "fsck /dev/sdX",
+        "description": "Checks and repairs the filesystem on /dev/sdX."
+      }
+    ]
+  },
+  {
+    "command": "du",
+    "summary": "Show disk usage",
+    "description": "Estimate file space usage.",
+    "options": [
+      {
+        "short": "-s",
+        "description": "Display only a total for each argument."
+      },
+      {
+        "short": "-h",
+        "long": "--human-readable",
+        "description": "Print sizes in human readable format (e.g., 1K, 234M, 2G)."
+      }
+    ],
+    "exit_status": {
+      "0": "Success"
+    },
+    "examples": [
+      {
+        "command": "du -sh /path",
+        "description": "Displays disk usage of the specified directory in human-readable format."
+      }
+    ]
+  },
+    {
+    "command": "ufw",
+    "summary": "Uncomplicated Firewall",
+    "description": "ufw is a frontend for iptables that provides a simplified way to manage a netfilter firewall.",
+    "options": [
+      {
+        "command": "status",
+        "description": "Check the status of the firewall."
+      },
+      {
+        "command": "allow",
+        "description": "Allow connections to a specific port/protocol."
+      },
+       {
+        "command": "deny",
+        "description": "Deny connections to a specific port/protocol."
+      },
+      {
+        "command": "delete",
+        "description": "Delete a rule."
+      }
+    ],
+    "exit_status": {
+      "0": "Success"
+    },
+    "examples": [
+      {
+        "command": "ufw status",
+        "description": "Checks the firewall status."
+      },
+      {
+        "command": "ufw allow 22/tcp",
+        "description": "Allows SSH traffic (port 22) through the firewall."
+      },
+        {
+        "command": "ufw deny 80/tcp",
+        "description": "Denies HTTP traffic (port 80) through the firewall."
+      },
+        {
+        "command": "ufw delete allow 22/tcp",
+        "description": "Deletes the rule allowing SSH traffic."
+      }
+    ]
+  },
+  {
+    "command": "fail2ban-client",
+    "summary": "Fail2ban client",
+    "description": "Client for interacting with the Fail2ban server.",
+    "options": [
+      {
+        "command": "status",
+        "description": "Check the status of Fail2ban and its jails."
+      },
+      {
+        "command": "start",
+        "description": "Start a jail."
+      },
+        {
+        "command": "stop",
+        "description": "Stop a jail."
+      },
+        {
+        "command": "restart",
+        "description": "Restart a jail."
+      }
+    ],
+    "exit_status": {
+      "0": "Success"
+    },
+    "examples": [
+      {
+        "command": "fail2ban-client status",
+        "description": "Checks the status of Fail2ban."
+      },
+        {
+        "command": "fail2ban-client status sshd",
+        "description": "Checks the status of the sshd jail."
+      }
+    ]
+  },
+  {
+    "command": "iptables",
+    "summary": "Firewall rules",
+    "description": "Administration tool for IPv4 packet filtering and NAT.",
+    "options": [
+      {
+        "short": "-L",
+        "description": "List the rules in a chain."
+      },
+      {
+        "short": "-n",
+        "description": "Numeric output of IP addresses and port numbers."
+      },
+      {
+        "short": "-v",
+        "description": "Verbose output."
+      }
+    ],
+    "exit_status": {
+      "0": "Success"
+    },
+    "examples": [
+      {
+        "command": "iptables -L -n -v",
+        "description": "Lists all firewall rules with numeric IP addresses and verbose output."
+      }
+    ]
+  },
+  {
+    "command": "ssh",
+    "summary": "Secure Shell",
+    "description": "Securely access a remote server.",
+    "options": [],
+    "exit_status": {
+      "0": "Success"
+    },
+    "examples": [
+      {
+        "command": "ssh user@remote_host",
+        "description": "Connects to the remote host as the specified user."
+      },
+        {
+        "command": "ssh -p 2222 user@remote_host",
+        "description": "Connects to the remote host on port 2222."
+      }
+    ]
+  }, 
+    {
+    "command": "uname",
+    "summary": "Display system information",
+    "description": "Print system information.",
+    "options": [
+      {
+        "short": "-a",
+        "description": "Print all system information (kernel name, network node hostname, kernel release, kernel version, machine hardware name, processor type, hardware platform, operating system)."
+      },
+      {
+        "short": "-s",
+        "description": "Print the kernel name."
+      },
+      {
+        "short": "-r",
+        "description": "Print the kernel release."
+      },
+      {
+        "short": "-v",
+        "description": "Print the kernel version."
+      },
+      {
+        "short": "-m",
+        "description": "Print the machine hardware name."
+      },
+      {
+        "short": "-p",
+        "description": "Print the processor type or architecture."
+      },
+      {
+        "short": "-i",
+        "description": "Print the hardware platform."
+      },
+      {
+        "short": "-o",
+        "description": "Print the operating system."
+      }
+    ],
+    "exit_status": {
+      "0": "Success"
+    },
+    "examples": [
+      {
+        "command": "uname -a",
+        "description": "Displays all system information."
+      },
+      {
+        "command": "uname -s",
+        "description": "Displays the kernel name."
+      }
+    ]
+  },
+  {
+    "command": "hostnamectl",
+    "summary": "View or change system hostname",
+    "description": "Control the system hostname.",
+    "options": [
+      {
+        "command": "status",
+        "description": "Show the current hostname settings."
+      },
+      {
+        "command": "set-hostname",
+        "description": "Set the system hostname."
+      }
+    ],
+    "exit_status": {
+      "0": "Success"
+    },
+    "examples": [
+      {
+        "command": "hostnamectl status",
+        "description": "Displays the current hostname settings."
+      },
+      {
+        "command": "hostnamectl set-hostname new_hostname",
+        "description": "Sets the system hostname to 'new_hostname'."
+      }
+    ]
+  },
+  {
+    "command": "uptime",
+    "summary": "Show system uptime",
+    "description": "Show how long the system has been running.",
+    "options": [],
+    "exit_status": {
+      "0": "Success"
+    },
+    "examples": [
+      {
+        "command": "uptime",
+        "description": "Displays the system uptime."
+      }
+    ]
+  },
+  {
+    "command": "vmstat",
+    "summary": "Display system performance metrics",
+    "description": "Report virtual memory statistics.",
+    "options": [],
+    "exit_status": {
+      "0": "Success"
+    },
+    "examples": [
+      {
+        "command": "vmstat",
+        "description": "Displays system performance metrics."
+      },
+      {
+        "command": "vmstat 2 5",
+        "description": "Displays system performance metrics every 2 seconds, 5 times."
+      }
+    ]
+  },
+  {
+    "command": "free",
+    "summary": "Show memory usage",
+    "description": "Display amount of free and used memory in the system.",
+    "options": [
+      {
+        "short": "-h",
+        "long": "--human-readable",
+        "description": "Show output in human-readable format."
+      }
+    ],
+    "exit_status": {
+      "0": "Success"
+    },
+    "examples": [
+      {
+        "command": "free -h",
+        "description": "Displays memory usage in human-readable format."
+      }
+    ]
+  },
+  {
+    "command": "iostat",
+    "summary": "Display I/O statistics",
+    "description": "Report Central Processing Unit (CPU) statistics and input/output statistics for devices and partitions.",
+    "options": [],
+    "exit_status": {
+      "0": "Success"
+    },
+    "examples": [
+      {
+        "command": "iostat",
+        "description": "Displays CPU and disk I/O statistics."
+      },
+      {
+        "command": "iostat 2",
+        "description": "Displays I/O statistics every 2 seconds."
+      }
+    ]
+  },
+  {
+    "command": "mpstat",
+    "summary": "Show CPU usage per core",
+    "description": "Report per-processor or per-core statistics.",
+    "options": [],
+    "exit_status": {
+      "0": "Success"
+    },
+    "examples": [
+      {
+        "command": "mpstat",
+        "description": "Displays CPU usage per core."
+      },
+      {
+        "command": "mpstat 2",
+        "description": "Displays CPU usage per core every 2 seconds."
+      }
+    ]
+  },
+  {
+    "command": "sar",
+    "summary": "Monitor system activity",
+    "description": "Collect, report, and save system activity information.",
+    "options": [
+        {
+            "short": "-u",
+            "description": "Report CPU utilization."
+        }
+    ],
+    "exit_status": {
+      "0": "Success"
+    },
+    "examples": [
+      {
+        "command": "sar -u 5 10",
+        "description": "Monitors CPU usage every 5 seconds, 10 times."
+      }
+    ]
+  },
+  {
+    "command": "dmesg",
+    "summary": "View kernel messages",
+    "description": "Display or control the kernel ring buffer.",
+    "options": [],
+    "exit_status": {
+      "0": "Success"
+    },
+    "examples": [
+      {
+        "command": "dmesg | tail -50",
+        "description": "Displays the last 50 kernel messages."
+      }
+    ]
+  },
+  {
+    "command": "watch",
+    "summary": "Re-run a command",
+    "description": "Execute a program periodically, showing output in full screen.",
+    "options": [
+        {
+            "short": "-n",
+            "description": "Update every n seconds."
+        }
+    ],
+    "exit_status": {
+      "0": "Success"
+    },
+    "examples": [
+      {
+        "command": "watch -n 5 \"ls -l\"",
+        "description": "Re-runs the command 'ls -l' every 5 seconds."
+      }
+    ]
+  },
+    {
+    "command": "who",
+    "summary": "Show logged-in users",
+    "description": "Display information about currently logged-in users.",
+    "options": [
+      {
+        "short": "-a",
+        "description": "Show all information about login sessions."
+      }
+    ],
+    "exit_status": {
+      "0": "Success"
+    },
+    "examples": [
+      {
+        "command": "who -a",
+        "description": "Displays detailed information about logged-in users."
+      }
+    ]
+  },
+  {
+    "command": "w",
+    "summary": "Display logged-in users and activity",
+    "description": "Show who is logged on and what they are doing.",
+    "options": [],
+    "exit_status": {
+      "0": "Success"
+    },
+    "examples": [
+      {
+        "command": "w",
+        "description": "Displays logged-in users and their activity."
+      }
+    ]
+  },
+  {
+    "command": "last",
+    "summary": "Show last logins",
+    "description": "Show a listing of last logged in and still logged in users.",
+    "options": [
+      {
+        "short": "-n",
+        "description": "Limit the number of lines displayed."
+      }
+    ],
+    "exit_status": {
+      "0": "Success"
+    },
+    "examples": [
+      {
+        "command": "last -n 10",
+        "description": "Shows the last 10 logins."
+      }
+    ]
+  },
+  {
+    "command": "finger",
+    "summary": "Display user information",
+    "description": "Display information about users.",
+    "options": [],
+    "exit_status": {
+      "0": "Success"
+    },
+    "examples": [
+      {
+        "command": "finger username",
+        "description": "Displays information about the specified user."
+      }
+    ]
+  },
+  {
+    "command": "wall",
+    "summary": "Send a broadcast message",
+    "description": "Send a message to all currently logged in users.",
+    "options": [],
+    "exit_status": {
+      "0": "Success"
+    },
+    "examples": [
+      {
+        "command": "wall \"Message to all users\"",
+        "description": "Sends the message to all logged-in users."
+      }
+    ]
+  },
+  {
+    "command": "nice",
+    "summary": "Run a process with lower priority",
+    "description": "Run a program with an adjusted niceness, which affects its scheduling priority.",
+    "options": [
+      {
+        "short": "-n",
+        "description": "Set the niceness level (a lower number means higher priority, but the default range is -20 to 19)."
+      }
+    ],
+    "exit_status": {
+      "0": "Success"
+    },
+    "examples": [
+      {
+        "command": "nice -n 10 command_to_run",
+        "description": "Runs 'command_to_run' with a niceness of 10 (lower priority)."
+      }
+    ]
+  },
+  {
+    "command": "renice",
+    "summary": "Change process priority",
+    "description": "Alter the priority of running processes.",
+    "options": [
+      {
+        "short": "-n",
+        "description": "The niceness increment (can be negative)."
+      },
+      {
+        "short": "-p",
+        "description": "Specify processes by PID."
+      }
+    ],
+    "exit_status": {
+      "0": "Success"
+    },
+    "examples": [
+      {
+        "command": "renice -n 5 -p [PID]",
+        "description": "Changes the priority of the process with the specified PID."
+      }
+    ]
+  },
+  {
+    "command": "nohup",
+    "summary": "Run command immune to hangups",
+    "description": "Run a command that continues to run even after the user disconnects.",
+    "options": [],
+    "exit_status": {
+      "0": "Success"
+    },
+    "examples": [
+      {
+        "command": "nohup command_to_run &",
+        "description": "Runs 'command_to_run' in the background, immune to hangups."
+      }
+    ]
+  },
+  {
+    "command": "bg",
+    "summary": "Resume a suspended process",
+    "description": "Resume a suspended process in the background.",
+    "options": [],
+    "exit_status": {
+      "0": "Success"
+    },
+    "examples": [
+      {
+        "command": "bg",
+        "description": "Resumes a suspended process in the background."
+      }
+    ]
+  },
+  {
+    "command": "fg",
+    "summary": "Bring process to foreground",
+    "description": "Bring a background process to the foreground.",
+    "options": [],
+    "exit_status": {
+      "0": "Success"
+    },
+    "examples": [
+      {
+        "command": "fg",
+        "description": "Brings a background process to the foreground."
+      }
+    ]
+  },
+    {
+    "command": "apt update",
+    "summary": "Refresh package repositories",
+    "description": "Update the local package list from the online repositories.",
+    "options": [],
+    "exit_status": {
+      "0": "Success"
+    },
+    "examples": [
+      {
+        "command": "apt update",
+        "description": "Refreshes the package repositories."
+      }
+    ]
+  },
+  {
+    "command": "apt upgrade",
+    "summary": "Upgrade installed packages",
+    "description": "Upgrade all upgradable packages to their latest versions.",
+    "options": [
+      {
+        "short": "-y",
+        "description": "Automatically answer 'yes' to prompts."
+      }
+    ],
+    "exit_status": {
+      "0": "Success"
+    },
+    "examples": [
+      {
+        "command": "apt upgrade -y",
+        "description": "Upgrades all packages, automatically answering 'yes' to prompts."
+      }
+    ]
+  },
+  {
+    "command": "apt remove",
+    "summary": "Uninstall a package",
+    "description": "Remove an installed package.",
+    "options": [],
+    "exit_status": {
+      "0": "Success"
+    },
+    "examples": [
+      {
+        "command": "apt remove package_name",
+        "description": "Uninstalls the specified package."
+      }
+    ]
+  },
+  {
+    "command": "dpkg",
+    "summary": "Debian package manager",
+    "description": "A tool to install, build, remove and manage Debian packages.",
+    "options": [
+      {
+        "short": "-l",
+        "description": "List installed packages."
+      },
+      {
+        "short": "-i",
+        "description": "Install a .deb package."
+      }
+    ],
+    "exit_status": {
+      "0": "Success"
+    },
+    "examples": [
+      {
+        "command": "dpkg -l | grep package_name",
+        "description": "Checks if a package is installed."
+      },
+      {
+        "command": "dpkg -i package.deb",
+        "description": "Installs the specified .deb package."
+      }
+    ]
+  },
+  {
+    "command": "dnf update",
+    "summary": "Update system packages (Fedora/RHEL)",
+    "description": "Update all system packages.",
+    "options": [
+      {
+        "short": "-y",
+        "description": "Automatically answer 'yes' to prompts."
+      }
+    ],
+    "exit_status": {
+      "0": "Success"
+    },
+    "examples": [
+      {
+        "command": "dnf update -y",
+        "description": "Updates all packages, automatically answering 'yes' to prompts."
+      }
+    ]
+  },
+  {
+    "command": "dnf remove",
+    "summary": "Remove a package (Fedora/RHEL)",
+    "description": "Remove a package.",
+    "options": [],
+    "exit_status": {
+      "0": "Success"
+    },
+    "examples": [
+      {
+        "command": "dnf remove package_name",
+        "description": "Removes the specified package."
+      }
+    ]
+  },
+  {
+    "command": "rpm",
+    "summary": "RPM Package Manager (RHEL)",
+    "description": "A powerful package management system.",
+    "options": [
+      {
+        "short": "-qa",
+        "description": "List all installed packages."
+      },
+      {
+        "short": "-ivh",
+        "description": "Install a .rpm package with verbose output and hash marks."
+      }
+    ],
+    "exit_status": {
+      "0": "Success"
+    },
+    "examples": [
+      {
+        "command": "rpm -qa | grep package_name",
+        "description": "Lists installed packages and filters for a specific package."
+      },
+      {
+        "command": "rpm -ivh package.rpm",
+        "description": "Installs the specified .rpm package."
+      }
+    ]
+  },
+  {
+    "command": "yum history list",
+    "summary": "View package installation history (older RHEL)",
+    "description": "View a history of yum transactions.",
+    "options": [],
+    "exit_status": {
+      "0": "Success"
+    },
+    "examples": [
+      {
+        "command": "yum history list",
+        "description": "Displays the package installation history."
+      }
+    ]
+  },
+    {
+    "command": "blkid",
+    "summary": "Show block device information",
+    "description": "Locate/identify block devices by their globally unique identifiers (UUIDs).",
+    "options": [],
+    "exit_status": {
+      "0": "Success"
+    },
+    "examples": [
+      {
+        "command": "blkid",
+        "description": "Displays UUIDs and labels of all block devices."
+      }
+    ]
+  },
+  {
+    "command": "fdisk",
+    "summary": "List partition tables",
+    "description": "Manipulate disk partition tables.",
+    "options": [
+      {
+        "short": "-l",
+        "description": "List partition tables for all devices."
+      }
+    ],
+    "exit_status": {
+      "0": "Success"
+    },
+    "examples": [
+      {
+        "command": "fdisk -l",
+        "description": "Lists partition tables of all disks."
+      }
+    ]
+  },
+  {
+    "command": "mkfs.ext4",
+    "summary": "Format with ext4 filesystem",
+    "description": "Create an ext4 filesystem.",
+    "options": [],
+    "exit_status": {
+      "0": "Success",
+      "1": "Failure"
+    },
+    "examples": [
+      {
+        "command": "mkfs.ext4 /dev/sdX",
+        "description": "Formats the partition /dev/sdX with the ext4 filesystem."
+      }
+    ]
+  },
+  {
+    "command": "tune2fs",
+    "summary": "Show ext4 filesystem details",
+    "description": "Adjust tunable filesystem parameters on ext4 filesystems.",
+    "options": [
+        {
+            "short": "-l",
+            "description": "Display filesystem label and other info"
+        }
+    ],
+    "exit_status": {
+      "0": "Success"
+    },
+    "examples": [
+      {
+        "command": "tune2fs -l /dev/sdX",
+        "description": "Displays details about the ext4 filesystem on /dev/sdX."
+      }
+    ]
+  },
+  {
+    "command": "xfs_info",
+    "summary": "Display XFS filesystem information",
+    "description": "Display information about an XFS filesystem.",
+    "options": [],
+    "exit_status": {
+      "0": "Success"
+    },
+    "examples": [
+      {
+        "command": "xfs_info /dev/sdX",
+        "description": "Displays information about the XFS filesystem on /dev/sdX."
+      }
+    ]
+  },
+  {
+    "command": "mount",
+    "summary": "Mount a filesystem",
+    "description": "Attach a filesystem to a mount point.",
+    "options": [
+      {
+        "short": "-o",
+        "description": "Specify mount options."
+      }
+    ],
+    "exit_status": {
+      "0": "Success",
+      "32": "Mounting failed"
+    },
+    "examples": [
+      {
+        "command": "mount -o remount,rw /",
+        "description": "Remounts the root filesystem as read-write."
+      }
+    ]
+  },
+  {
+    "command": "swapoff",
+    "summary": "Deactivate swap",
+    "description": "Disable swap devices and files.",
+    "options": [
+        {
+            "short": "-a",
+            "description": "Disable swapping on all devices/files."
+        }
+    ],
+    "exit_status": {
+      "0": "Success"
+    },
+    "examples": [
+      {
+        "command": "swapoff -a",
+        "description": "Deactivates all swap devices and files."
+      }
+    ]
+  },
+    {
+    "command": "swapon",
+    "summary": "Activate swap",
+    "description": "Start swapping to a device/file.",
+    "options": [
+        {
+            "short": "-a",
+            "description": "Enable swapping on all devices/files marked as swap in /etc/fstab."
+        }
+    ],
+    "exit_status": {
+      "0": "Success"
+    },
+    "examples": [
+      {
+        "command": "swapon -a",
+        "description": "Activates all swap partitions as defined in /etc/fstab."
+      }
+    ]
+  },
+  {
+    "command": "parted",
+    "summary": "GNU Parted",
+    "description": "A program to create, destroy, resize, check and copy partitions, and to perform various file system manipulations.",
+    "options": [],
+    "exit_status": {
+      "0": "Success"
+    },
+    "examples": [
+      {
+        "command": "parted /dev/sdX print",
+        "description": "Shows partition details for /dev/sdX."
+      }
+    ]
+  },
+  {
+    "command": "resize2fs",
+    "summary": "Resize ext2/3/4 filesystem",
+    "description": "Resize an ext2/3/4 filesystem.",
+    "options": [],
+    "exit_status": {
+      "0": "Success"
+    },
+    "examples": [
+      {
+        "command": "resize2fs /dev/sdX",
+        "description": "Resizes the ext4 filesystem on /dev/sdX."
+      }
+    ]
+  },
+  {
+    "command": "btrfs",
+    "summary": "Btrfs filesystem manager",
+    "description": "A modern copy-on-write filesystem for Linux",
+    "options": [
+      {
+        "command": "filesystem df",
+        "description": "Show Btrfs disk space usage."
+      }
+    ],
+    "exit_status": {
+      "0": "Success"
+    },
+    "examples": [
+      {
+        "command": "btrfs filesystem df /mnt",
+        "description": "Shows Btrfs disk usage details for the mounted filesystem at /mnt."
+      }
+    ]
+  },
+    {
+    "command": "host",
+    "summary": "Resolve domain name",
+    "description": "DNS lookup utility.",
+    "options": [],
+    "exit_status": {
+      "0": "Success"
+    },
+    "examples": [
+      {
+        "command": "host example.com",
+        "description": "Resolves the domain name example.com to an IP address."
+      }
+    ]
+  },
+  {
+    "command": "dig",
+    "summary": "DNS lookup",
+    "description": "DNS lookup utility.",
+    "options": [],
+    "exit_status": {
+      "0": "Success"
+    },
+    "examples": [
+      {
+        "command": "dig example.com",
+        "description": "Performs a detailed DNS lookup for example.com."
+      }
+    ]
+  },
+  {
+    "command": "nslookup",
+    "summary": "DNS lookup",
+    "description": "Query Internet domain name servers.",
+    "options": [],
+    "exit_status": {
+      "0": "Success"
+    },
+    "examples": [
+      {
+        "command": "nslookup example.com",
+        "description": "Performs a DNS lookup for example.com."
+      }
+    ]
+  },
+  {
+    "command": "tcpdump",
+    "summary": "Capture network packets",
+    "description": "A powerful command-line packet analyzer.",
+    "options": [
+      {
+        "short": "-i",
+        "description": "Specify the interface to listen on."
+      },
+        {
+            "description": "port"
+        }
+
+    ],
+    "exit_status": {
+      "0": "Success"
+    },
+    "examples": [
+      {
+        "command": "tcpdump -i eth0 port 80",
+        "description": "Captures packets on interface eth0, port 80."
+      }
+    ]
+  },
+  {
+    "command": "ethtool",
+    "summary": "Show Ethernet interface information",
+    "description": "Display or control Ethernet or network interface controller settings.",
+    "options": [],
+    "exit_status": {
+      "0": "Success"
+    },
+    "examples": [
+      {
+        "command": "ethtool eth0",
+        "description": "Displays detailed information about interface eth0."
+      }
+    ]
+  },
+  {
+    "command": "nmcli",
+    "summary": "NetworkManager command-line tool",
+    "description": "Command-line tool for controlling NetworkManager.",
+    "options": [
+        {
+            "command": "device status",
+            "description": "Show network device status."
+        }
+    ],
+    "exit_status": {
+      "0": "Success"
+    },
+    "examples": [
+      {
+        "command": "nmcli device status",
+        "description": "Shows network connection status."
+      }
+    ]
+  },
+  {
+    "command": "nmap",
+    "summary": "Network scanner",
+    "description": "A powerful network scanner.",
+    "options": [
+      {
+        "short": "-sS",
+        "description": "Perform a stealth SYN scan."
+      }
+      
+    ],
+    "exit_status": {
+      "0": "Success"
+    },
+    "examples": [
+      {
+        "command": "nmap -sS 192.168.1.1",
+        "description": "Performs a stealth SYN scan on the specified IP."
+      }
+    ]
+  },
+  {
+    "command": "scp",
+    "summary": "Secure copy",
+    "description": "Securely copy files between systems.",
+    "options": [],
+    "exit_status": {
+      "0": "Success"
+    },
+    "examples": [
+      {
+        "command": "scp file user@remote:/path",
+        "description": "Securely copies 'file' to the remote system."
+      }
+    ]
+  },
+  {
+    "command": "rsync",
+    "summary": "Remote synchronization",
+    "description": "A fast, versatile, file copying and file synchronisation tool.",
+    "options": [
+      {
+        "short": "-av",
+        "description": "Archive mode (recursive, preserves timestamps and permissions) and verbose output."
+      }
+    ],
+    "exit_status": {
+      "0": "Success"
+    },
+    "examples": [
+      {
+        "command": "rsync -av /source /destination",
+        "description": "Synchronizes directories with compression and other options."
+      }
+    ]
+  },
+  {
+    "command": "iptables",
+    "summary": "Firewall rules",
+    "description": "Administration tool for IPv4 packet filtering and NAT.",
+    "options": [
+      {
+        "short": "-A",
+        "description": "Append a rule to a chain."
+      },
+        {
+            "short": "-p",
+            "description": "Protocol"
+        },
+        {
+            "description": "--dport"
+        },
+        {
+            "short": "-j",
+            "description": "Jump to a target."
+        }
+    ],
+    "exit_status": {
+      "0": "Success"
+    },
+    "examples": [
+      {
+        "command": "iptables -A INPUT -p tcp --dport 80 -j ACCEPT",
+        "description": "Allows HTTP traffic (port 80) through the firewall."
+      }
+    ]
+  }
+]
